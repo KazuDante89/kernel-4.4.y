@@ -165,7 +165,7 @@
 			qcom,limits-info = <&mitigation_profile1>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
 			qcom,ea = <&ea4>;
-      capacity-dmips-mhz = <1638>
+      capacity-dmips-mhz = <1638>;
 			efficiency = <1638>;
       sched-energy-costs = <&CPU_COST_1 &CLUSTER_COST_1>;
 			next-level-cache = <&L2_1>;
@@ -195,7 +195,7 @@
 			qcom,limits-info = <&mitigation_profile2>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
 			qcom,ea = <&ea5>;
-      capacity-dmips-mhz = <1638>
+      capacity-dmips-mhz = <1638>;
 			efficiency = <1638>;
       sched-energy-costs = <&CPU_COST_1 &CLUSTER_COST_1>;
 			next-level-cache = <&L2_1>;
@@ -221,7 +221,7 @@
 			qcom,limits-info = <&mitigation_profile3>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
 			qcom,ea = <&ea6>;
-      capacity-dmips-mhz = <1638>
+      capacity-dmips-mhz = <1638>;
 			efficiency = <1638>;
       sched-energy-costs = <&CPU_COST_1 &CLUSTER_COST_1>;
 			next-level-cache = <&L2_1>;
@@ -247,7 +247,7 @@
 			qcom,limits-info = <&mitigation_profile4>;
 			qcom,lmh-dcvs = <&lmh_dcvs1>;
 			qcom,ea = <&ea7>;
-      capacity-dmips-mhz = <1638>
+      capacity-dmips-mhz = <1638>;
 			efficiency = <1638>;
       sched-energy-costs = <&CPU_COST_1 &CLUSTER_COST_1>;
 			next-level-cache = <&L2_1>;
