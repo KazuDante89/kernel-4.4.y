@@ -72,7 +72,7 @@ DEFCONFIG=lavender-perf_defconfig
 COMPILER=clang
 
 # Optimizations
-LTO=0
+LTO= 0
 if [ $LTO = "1" ]; then
 echo "CONFIG_THIN_ARCHIVES=y
 CONFIG_LD_DEAD_CODE_DATA_ELIMINATION=y
