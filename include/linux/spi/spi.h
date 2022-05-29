@@ -430,9 +430,6 @@ struct spi_master {
 	/* flag indicating this is an SPI slave controller */
 	bool			slave;
 
-	/* flag indicating this is a non-devres managed controller */
-	bool			devm_allocated;
-
 	/* lock and mutex for SPI bus locking */
 	spinlock_t		bus_lock_spinlock;
 	struct mutex		bus_lock_mutex;
@@ -599,7 +596,7 @@ static inline struct spi_master *spi_alloc_slave(struct device *host,
 }
 
 extern struct spi_master *
-spi_alloc_master(struct device *host, unsigned size);
+devm_spi_alloc_master(struct device *dev, unsigned int size);
 
 extern int spi_register_master(struct spi_master *master);
 extern int devm_spi_register_master(struct device *dev,

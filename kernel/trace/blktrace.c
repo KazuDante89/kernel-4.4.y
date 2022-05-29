@@ -782,8 +782,8 @@ void blk_trace_shutdown(struct request_queue *q)
 static void blk_add_trace_rq(struct request_queue *q, struct request *rq,
 			     unsigned int nr_bytes, u32 what)
 {
-	struct blk_trace *bt;
 	struct task_struct *tsk = current;
+	struct blk_trace *bt;
 
 	rcu_read_lock();
 	bt = rcu_dereference(q->blk_trace);
@@ -865,8 +865,8 @@ static void blk_add_trace_rq_complete(void *ignore,
 static void blk_add_trace_bio(struct request_queue *q, struct bio *bio,
 			      u32 what, int error)
 {
-	struct blk_trace *bt;
 	struct task_struct *tsk = current;
+	struct blk_trace *bt;
 
 	rcu_read_lock();
 	bt = rcu_dereference(q->blk_trace);
@@ -999,8 +999,8 @@ static void blk_add_trace_split(void *ignore,
 				struct request_queue *q, struct bio *bio,
 				unsigned int pdu)
 {
-	struct blk_trace *bt;
 	struct task_struct *tsk = current;
+	struct blk_trace *bt;
 
 	rcu_read_lock();
 	bt = rcu_dereference(q->blk_trace);
@@ -1121,8 +1121,8 @@ void blk_add_driver_data(struct request_queue *q,
 			 struct request *rq,
 			 void *data, size_t len)
 {
-	struct blk_trace *bt;
 	struct task_struct *tsk = current;
+	struct blk_trace *bt;
 
 	rcu_read_lock();
 	bt = rcu_dereference(q->blk_trace);
@@ -1632,14 +1632,6 @@ static int blk_trace_remove_queue(struct request_queue *q)
 	bt = xchg(&q->blk_trace, NULL);
 	if (bt == NULL)
 		return -EINVAL;
-
-	if (bt->trace_state == Blktrace_running) {
-		bt->trace_state = Blktrace_stopped;
-		spin_lock_irq(&running_trace_lock);
-		list_del_init(&bt->running_list);
-		spin_unlock_irq(&running_trace_lock);
-		relay_flush(bt->rchan);
-	}
 
 	put_probe_ref();
 	synchronize_rcu();
